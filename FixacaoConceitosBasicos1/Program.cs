@@ -15,36 +15,74 @@ using FixacaoConceitosBasicos1.Model;
 int menu = 0;
 do
 {
-    Console.WriteLine("\n========================================================================");
-    Console.WriteLine("\nOlá, escolha qual exercício deseja testar:\n" +
-        "1 - Soma dois números\n" +
-        "2 - Metros milimetros\n" +
-        "3 - Calcula aumento\n" +
-        "4 - Calcula desconto\n" +
-        "5 - Calcula aluguel carro\n" +
-        "6 - Sair\n");
+    try
+    {
+        Console.WriteLine("\n========================================================================");
+        Console.WriteLine("\nOlá, escolha qual exercício deseja testar:\n" +
+            "1 - Soma dois números\n" +
+            "2 - Metros milimetros\n" +
+            "3 - Calcula aumento\n" +
+            "4 - Calcula desconto\n" +
+            "5 - Calcula aluguel carro\n" +
+            "6 - Sair\n");
 
-    Console.Write("Opção: ");
-    menu = int.Parse(Console.ReadLine());
+        Console.Write("Opção: ");
+        menu = int.Parse(Console.ReadLine());
+        break;
+    } catch (Exception e) {
+        // Default do switch será executado
+    }
 
     switch (menu)
     {
         case 1:
-            Console.Write("\n1° número: ");
-            int n1 = int.Parse(Console.ReadLine());
+            int n1, n2;
+            while (true)
+            {
+                try
+                {
+                    Console.Write("\n1° número: ");
+                    n1 = int.Parse(Console.ReadLine());
 
-            Console.Write("2° número: ");
-            int n2 = int.Parse(Console.ReadLine());
+                    break;
+                } catch (Exception e)
+                {
+                    Console.WriteLine("Insira um valor válido para o 1° número.");
+                }
+            }
+            while (true)
+            {
+                try
+                {
+                    Console.Write("2° número: ");
+                    n2 = int.Parse(Console.ReadLine());
 
-            int resultado = SomaDoisNumeros.Somar(n1, n2);
-            Console.WriteLine($"\n{n1} + {n2} = {resultado}");
+                    int resultado = SomaDoisNumeros.Somar(n1, n2);
+                    Console.WriteLine($"\n{n1} + {n2} = {resultado}");
+                    break;
+                } catch (Exception e)
+                {
+                    Console.WriteLine("Insira um valor válido para o 2° número.");
+                }
+            }
             break;
         case 2:
-            Console.Write("\nValor em metros: ");
-            double metros = double.Parse(Console.ReadLine());
-            double milimetros = MetrosMilimetros.Converter(metros);
+            while (true)
+            {
+                try
+                {
+                    Console.Write("\nValor em metros: ");
+                    double metros = double.Parse(Console.ReadLine());
+                    double milimetros = MetrosMilimetros.Converter(metros);
 
-            Console.WriteLine($"\n{metros} metros equivalem a {milimetros} milímetros.");
+                    Console.WriteLine($"\n{metros} metros equivalem a {milimetros} milímetros.");
+                    break; // se for até o final do try ele sai do while
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("\nPor favor informe um valor válido.\n");
+                }
+            }
             break;
         case 3:
             Console.Write("\nSalario: ");
