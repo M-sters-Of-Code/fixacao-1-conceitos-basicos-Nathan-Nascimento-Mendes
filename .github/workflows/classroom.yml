@@ -19,7 +19,7 @@ jobs:
       with:
         test-name: RodarTestes
         setup-command: ''
-        command: dotnet test
+        command: dotnet test --project ./TestesFixacaoConceitosBasicos1/TestesFixacaoConceitosBasicos1.csproj
         timeout: 10
         max-score: 10
     - name: Autograding Reporter
