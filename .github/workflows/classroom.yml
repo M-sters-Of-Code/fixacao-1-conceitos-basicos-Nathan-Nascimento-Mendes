@@ -18,7 +18,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: RodarTestes
-        setup-command: dotnet test
+        setup-command: ''
         command: dotnet test
         timeout: 10
         max-score: 10
